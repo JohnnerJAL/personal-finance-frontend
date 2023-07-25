@@ -1,0 +1,127 @@
+main {
+    height: 80vh;
+    overflow-y: scroll;
+    padding: 0 20px 10px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    h4 {
+        font-size: 1.4rem;
+    }
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+
+    // background: rgb(102,0,198);
+    // background: linear-gradient(180deg, rgba(102,0,198,1) 30%, rgba(89,11,235,1) 70%, rgba(46,0,255,1) 100%);
+
+    background: rgb(9,9,121);
+    // background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(9,68,121,1) 35%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(180deg, rgba(9,68,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+section {
+    // background-color: rgb(250, 235, 215);
+    border-radius: 4px;
+    padding: 20px;
+    display: grid;
+    gap: 5px;
+    background-color: white;
+    font-size: 1.2rem;
+}
+
+.resume {
+    // margin-top: 10px;
+}
+
+.chart-container {
+    border: solid yellow;
+}
+
+canvas {
+    width: 100%;
+    height: 100px;
+}
+
+.transaction-record {
+    h4 {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+    form {
+        display: grid;
+        gap: 5px;
+        label {
+            display: grid;
+            font-size: 1rem;
+            span {
+                color: #094479;
+                padding: 5px 0;
+            }
+            div.input-container {
+                display: grid;
+                grid-template-columns: 25px 1fr;
+                border: 1px solid gray;
+                border-radius: 25px;
+                div.icon-container {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    justify-self: center;
+                    align-self: center;
+                    background: linear-gradient(180deg, rgba(9,68,121,1) 35%, rgba(0,212,255,1) 100%);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                input {
+                    font-size: 1rem;
+                    border: none;
+                    border-radius: 25px;
+                    padding: 7px;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                select {
+                    font-size: 1rem;
+                    border: none;
+                    border-radius: 25px;
+                    padding: 6px;
+                    background-color: white;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+        button {
+            margin-top: 20px;
+            padding: 5px;
+            background: linear-gradient(-90deg, rgba(9,68,121,1) 35%, rgba(0,212,255,1) 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+section.balance {
+    p:not(:first-child) {
+        text-align: center;
+        font-size: 1.4rem;
+        &.available {
+            color: #7BB545;
+        }
+        &.debt {
+            color: red;
+        }
+    }
+}
+
+
+// background: rgb(102,0,198);
+// background: linear-gradient(90deg, rgba(102,0,198,1) 30%, rgba(89,11,235,1) 70%, rgba(46,0,255,1) 100%);
+// background: rgb(2,0,36);
+// background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);

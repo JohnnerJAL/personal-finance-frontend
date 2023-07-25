@@ -1,0 +1,6 @@
+<div class="transaction" [class.expense]="transaction.total < 0">
+    <div>{{ transaction.createdOn | date: "M/dd" }}</div>
+    <div>{{ transaction.title }}</div>
+    <div class="currency">{{ transaction.total.toString() | currency }}</div>
+    <div class="currency">{{ transaction.totalAvailable.toString() | currency }}</div>
+</div>

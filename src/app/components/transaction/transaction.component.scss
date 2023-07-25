@@ -1,0 +1,17 @@
+.transaction {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    font-size: 1.4rem;
+    border-radius: 4px;
+    padding: 4px;
+    // background-color: rgb(135, 189, 8);
+
+    .currency {
+        text-align: right;
+    }
+}
+
+.expense {
+    // background-color: red;
+}

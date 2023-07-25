@@ -1,0 +1,17 @@
+nav {
+    height: 10vh;
+    padding: 0 20px;
+    font-size: 1.6rem;
+    background: rgba(9,68,121,1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

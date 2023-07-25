@@ -1,0 +1,72 @@
+<main>
+
+    <section class="balance">
+        <p>Total balance</p>
+        <p
+            [ngClass]="{
+                available: account.totalAvailable >= 0,
+                debt: account.totalAvailable < 0
+            }"
+        >
+            {{ account.totalAvailable | currency }}
+        </p>
+    </section>
+
+    <section class="resume">
+        <!-- <h4>Resume</h4> -->
+        <canvas id="incomeAndExpenseCanvas">{{ chart }}</canvas>
+    </section>
+
+    <section class="transaction-record">
+        <h4>TRANSACTION</h4>
+        <form action="">
+            <label for="category">
+                <span>Category:</span>
+                <div class="input-container">
+                    <div class="icon-container">
+                        <ng-icon name="heroTag" color="white" size="15"></ng-icon>
+                    </div>
+                    <select id="category" name="category" style="color: gray;">
+                        <option hidden>Select Category</option>
+                        <option [value]="c.id" *ngFor="let c of categories">
+                            {{ c.name }}
+                        </option>
+                    </select>
+                </div>
+            </label>
+            <label for="title">
+                <span>Title:</span>
+                <div class="input-container">
+                    <div class="icon-container">
+                        <ng-icon name="heroIdentification" color="white" size="15"></ng-icon>
+                    </div>
+                    <input id="title" type="text" name="title" placeholder="Enter Title">
+                </div>
+            </label>
+            <label for="description">
+                <span>Description:</span>
+                <div class="input-container">
+                    <div class="icon-container">
+                        <ng-icon name="heroDocumentText" color="white" size="15"></ng-icon>
+                    </div>
+                    <input id="description" type="text" name="description" placeholder="Enter Description">
+                </div>
+            </label>
+            <label for="total">
+                <span>Total:</span>
+                <div class="input-container">
+                    <div class="icon-container">
+                        <ng-icon name="heroCurrencyDollar" color="white" size="15"></ng-icon>
+                    </div>
+                    <input id="total" type="number" name="total" placeholder="Enter Transaction Value">
+                </div>
+            </label>
+            <button type="submit">SAVE</button>
+        </form>
+    </section>
+
+    <section>
+        <h4>Last transactions</h4>
+        <app-transaction [transaction]="t" *ngFor="let t of lastTransactions" />
+    </section>
+</main>
