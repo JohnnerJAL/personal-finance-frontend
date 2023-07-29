@@ -1,12 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-export interface Transaction {
-  title: String,
-  description: String,
-  total: number,
-  totalAvailable: Number
-  createdOn: Date
-}
+import { Transaction } from 'src/app/Interface/Transaction';
 
 @Component({
   selector: 'app-transaction',
@@ -21,7 +14,9 @@ export class TransactionComponent {
     description: '',
     total: 0,
     totalAvailable: 0,
-    createdOn: new Date()
+    createdOn: new Date(),
+    icon: 'heroTag',
+    color: 'black'
   }
 
 }

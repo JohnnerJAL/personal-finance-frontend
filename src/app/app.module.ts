@@ -1,50 +1,56 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgIconsModule } from '@ng-icons/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IncomesComponent } from './pages/incomes/incomes.component';
-import { AccountComponent } from './pages/account/account.component';
-import { NavComponent } from './components/nav/nav.component';
+import { AccountNavComponent } from './components/account-nav/account-nav.component';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
-import { ExpensesComponent } from './pages/expenses/expenses.component';
-import { NgIconsModule } from '@ng-icons/core';
+import { TransactionsComponent } from './components/transactions/transactions.component';
+
+import { AccountPageComponent } from './pages/account/account-page.component';
+import { TransactionsPageComponent } from './pages/transactions/transactions-page.component';
+
 import {
   heroCurrencyDollar,
   heroDocumentText,
   heroIdentification,
-  heroTag, heroBars4, heroPlusCircle, heroPuzzlePiece, heroQueueList, heroScale, heroStar, heroTrash, heroUser, heroWallet, heroChartPie, heroChartBar, heroCubeTransparent, heroExclamationCircle, heroHome, heroPencilSquare, heroRectangleGroup, heroSquares2x2, heroCog8Tooth, heroBanknotes, heroArrowSmallDown, heroArrowSmallUp } from '@ng-icons/heroicons/outline';
-import { MainNavComponent } from './components/main-nav/main-nav.component';
+  heroTag,
+  heroExclamationTriangle,
+  heroPuzzlePiece,
+  heroScale,
+  heroUser,
+  heroChartPie,
+  heroSquares2x2,
+  heroCog8Tooth
+} from '@ng-icons/heroicons/outline';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IncomesComponent,
-    AccountComponent,
-    NavComponent,
+    AccountNavComponent,
+    MainNavComponent,
+    AccountPageComponent,
     TransactionComponent,
-    ExpensesComponent,
-    MainNavComponent
+    TransactionsComponent,
+    TransactionsPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgIconsModule.withIcons({
-      heroHome,
       heroDocumentText,
       heroUser,
       heroTag,
       heroIdentification,
-      heroBars4,
       heroPuzzlePiece,
       heroSquares2x2,
       heroScale,
-      heroChartBar,
       heroChartPie,
-      heroCog8Tooth,
-      heroArrowSmallDown,
-      heroArrowSmallUp,
-      heroCurrencyDollar
+      heroCurrencyDollar,
+      heroExclamationTriangle,
+      heroCog8Tooth
     })
   ],
   providers: [],

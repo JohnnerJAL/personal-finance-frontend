@@ -1,0 +1,11 @@
+<div class="transactions-container">
+    <div class="month-container" *ngFor="let monthlyTransactions of transactions">
+        <h4 class="month">JULY</h4>
+        <div class="day-container" *ngFor="let dailyTransactions of monthlyTransactions">
+            <h5 class="day">July 01, 2022</h5>
+            <div class="transaction-container">
+                <app-transaction [transaction]="t" *ngFor="let t of dailyTransactions" />
+            </div>
+        </div>
+    </div>
+</div>

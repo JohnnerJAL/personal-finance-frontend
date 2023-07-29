@@ -1,6 +1,14 @@
 <div class="transaction" [class.expense]="transaction.total < 0">
-    <div>{{ transaction.createdOn | date: "M/dd" }}</div>
-    <div>{{ transaction.title }}</div>
-    <div class="currency">{{ transaction.total.toString() | currency }}</div>
-    <div class="currency">{{ transaction.totalAvailable.toString() | currency }}</div>
+    <!-- <div>{{ transaction.createdOn | date: "M/dd" }}</div> -->
+    <div class="icon-container">
+        <ng-icon [name]="transaction.icon" [color]="transaction.color" size="14"></ng-icon>
+    </div>
+    <div>
+        <p class="title">{{ transaction.title }}</p>
+        <p class="available">
+            Available: {{ transaction.totalAvailable.toString() | currency }}
+        </p>
+        <p class="description">{{ transaction.description }}</p>
+    </div>
+    <div class="total">{{ transaction.total.toString() | currency }}</div>
 </div>

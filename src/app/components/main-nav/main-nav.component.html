@@ -1,8 +1,10 @@
 <nav>
-    <!-- <ng-icon name="heroHome" color="black" size="25"></ng-icon> -->
-    <ng-icon name="heroSquares2x2" color="rgba(0,212,255,1)" size="25"></ng-icon>
-    <ng-icon name="heroScale" color="gray" size="25"></ng-icon>
-    <!-- <ng-icon name="heroChartBar" color="gray" size="25"></ng-icon> -->
+    <a routerLink="/account" routerLinkActive="active" #rla1="routerLinkActive">
+        <ng-icon name="heroSquares2x2" [color]="rla1.isActive ? 'rgba(0,212,255,1)' : 'gray'" size="25"></ng-icon>
+    </a>
+    <a routerLink="/transactions" routerLinkActive="active" #rla2="routerLinkActive">
+        <ng-icon name="heroScale" [color]="rla2.isActive ? 'rgba(0,212,255,1)' : 'gray'" size="25"></ng-icon>
+    </a>
     <ng-icon name="heroChartPie" color="gray" size="25"></ng-icon>
     <ng-icon name="heroPuzzlePiece" color="gray" size="25"></ng-icon>
 </nav>

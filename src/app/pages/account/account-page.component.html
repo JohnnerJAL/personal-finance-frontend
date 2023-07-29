@@ -1,7 +1,6 @@
 <main>
-
     <section class="balance">
-        <p>Total balance</p>
+        <h4>Total balance</h4>
         <p
             [ngClass]="{
                 available: account.totalAvailable >= 0,
@@ -12,9 +11,8 @@
         </p>
     </section>
 
-    <section class="resume">
-        <!-- <h4>Resume</h4> -->
-        <canvas id="incomeAndExpenseCanvas">{{ chart }}</canvas>
+    <section class="chart">
+        <canvas id="resumeChartCanvas">{{ chart }}</canvas>
     </section>
 
     <section class="transaction-record">
@@ -65,8 +63,8 @@
         </form>
     </section>
 
-    <section>
-        <h4>Last transactions</h4>
-        <app-transaction [transaction]="t" *ngFor="let t of lastTransactions" />
+    <section class="last-transactions">
+        <h4>LAST</h4>
+        <app-transactions [transactions]="transactions"/>
     </section>
 </main>
