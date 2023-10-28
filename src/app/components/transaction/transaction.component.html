@@ -1,4 +1,4 @@
-<div class="transaction" [class.expense]="transaction.total < 0">
+<div class="transaction" [class.expense]="transaction.total < 0" (click)="showDetails(transaction.id)" (keyup)="showDetails2()" role="document">
     <!-- <div>{{ transaction.createdOn | date: "M/dd" }}</div> -->
     <div class="icon-container">
         <ng-icon [name]="transaction.icon" [color]="transaction.color" size="14"></ng-icon>

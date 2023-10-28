@@ -3,4 +3,7 @@ export interface Category {
     name: string
     isActive: boolean
     accountId: number
+    description?: string
+    icon?: string
+    color?: string
 }

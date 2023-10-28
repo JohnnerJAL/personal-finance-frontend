@@ -50,6 +50,7 @@ export class AccountPageComponent implements OnInit {
 
   lastTransactions: Array<Transaction> = [
     {
+      id: 1,
       title: "Restaurant",
       description: "la t1",
       total: 444,
@@ -59,6 +60,7 @@ export class AccountPageComponent implements OnInit {
       color: 'orange'
     },
     {
+      id: 2,
       title: "Colombia Vacations",
       description: "la t2",
       total: -444,
@@ -68,6 +70,7 @@ export class AccountPageComponent implements OnInit {
       color: 'purple'
     },
     {
+      id: 3,
       title: "Water & Electricity",
       description: "la t3",
       total: 444,
@@ -115,6 +118,7 @@ export class AccountPageComponent implements OnInit {
     [
       [
         {
+          id: 1,
           title: "Restaurant",
           description: "la t1",
           total: 444,
@@ -126,6 +130,7 @@ export class AccountPageComponent implements OnInit {
       ],
       [
         {
+          id: 2,
           title: "Water & Electricity",
           description: "la t3",
           total: 444,
@@ -139,6 +144,7 @@ export class AccountPageComponent implements OnInit {
     [
       [
         {
+          id: 3,
           title: "Water & Electricity",
           description: "la t3",
           total: 444,

@@ -1,0 +1,16 @@
+<label [for]="label">
+    <span>{{ title }}:</span>
+    <div class="input-container">
+        <div class="icon-container">
+            <ng-icon [name]="icon" color="white" size="15"></ng-icon>
+        </div>
+        <input
+            [id]="label"
+            [type]="type"
+            [name]="name"
+            [placeholder]="placeholder"
+            [(ngModel)]="value"
+            (ngModelChange)="emitValue($event)"
+        >
+    </div>
+</label>

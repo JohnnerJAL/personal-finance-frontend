@@ -10,6 +10,7 @@ export class TransactionComponent {
 
   @Input()
   transaction: Transaction = {
+    id: 1,
     title: '',
     description: '',
     total: 0,
@@ -17,6 +18,14 @@ export class TransactionComponent {
     createdOn: new Date(),
     icon: 'heroTag',
     color: 'black'
+  }
+
+  showDetails(transactionId: number) {
+    console.log(transactionId);
+  }
+
+  showDetails2() {
+    console.log('');
   }
 
 }

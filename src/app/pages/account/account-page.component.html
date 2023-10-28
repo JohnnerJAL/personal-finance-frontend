@@ -32,34 +32,23 @@
                     </select>
                 </div>
             </label>
-            <label for="title">
-                <span>Title:</span>
-                <div class="input-container">
-                    <div class="icon-container">
-                        <ng-icon name="heroIdentification" color="white" size="15"></ng-icon>
-                    </div>
-                    <input id="title" type="text" name="title" placeholder="Enter Title">
-                </div>
-            </label>
-            <label for="description">
-                <span>Description:</span>
-                <div class="input-container">
-                    <div class="icon-container">
-                        <ng-icon name="heroDocumentText" color="white" size="15"></ng-icon>
-                    </div>
-                    <input id="description" type="text" name="description" placeholder="Enter Description">
-                </div>
-            </label>
-            <label for="total">
-                <span>Total:</span>
-                <div class="input-container">
-                    <div class="icon-container">
-                        <ng-icon name="heroCurrencyDollar" color="white" size="15"></ng-icon>
-                    </div>
-                    <input id="total" type="number" name="total" placeholder="Enter Transaction Value">
-                </div>
-            </label>
-            <button type="submit">SAVE</button>
+            <app-input label="title" title="Title" name="title" />
+            <app-input
+                label="description"
+                title="Description"
+                name="description"
+                placeholder="Enter Description"
+                icon="heroDocumentText"
+            />
+            <app-input
+                label="total"
+                title="Total"
+                name="total"
+                type="number"
+                placeholder="Enter Transaction Value"
+                icon="heroCurrencyDollar"
+            />
+            <app-button />
         </form>
     </section>
 

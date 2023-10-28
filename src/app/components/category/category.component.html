@@ -1,0 +1,13 @@
+<div class="category" [class.disabled]="!category.isActive" (click)="showDetails(category.id)" (keyup)="showDetails(category.id)" role="document">
+    <div class="icon-container">
+        <ng-icon [name]="category.icon ?? ''" [color]="category.color" size="14"></ng-icon>
+    </div>
+    <div>
+        <p class="title">{{ category.name }}</p>
+        <!-- <p class="available">
+            Available: {{ transaction.totalAvailable.toString() | currency }}
+        </p> -->
+        <p class="description">{{ category.description }}</p>
+    </div>
+    <!-- <div class="total">{{ category.total.toString() | currency }}</div> -->
+</div>

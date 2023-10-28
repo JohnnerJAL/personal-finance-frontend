@@ -11,6 +11,7 @@ export class TransactionsPageComponent {
     [
       [
         {
+          id: 1,
           title: "Restaurant",
           description: "la t1",
           total: 444,
@@ -20,6 +21,7 @@ export class TransactionsPageComponent {
           color: 'orange'
         },
         {
+          id: 2,
           title: "Colombia Vacations",
           description: "la t2",
           total: -444,
@@ -29,6 +31,7 @@ export class TransactionsPageComponent {
           color: 'purple'
         },
         {
+          id: 3,
           title: "Water & Electricity",
           description: "la t3",
           total: 444,
@@ -40,6 +43,7 @@ export class TransactionsPageComponent {
       ],
       [
         {
+          id: 4,
           title: "Restaurant",
           description: "la t1",
           total: 444,
@@ -49,6 +53,7 @@ export class TransactionsPageComponent {
           color: 'orange'
         },
         {
+          id: 5,
           title: "Colombia Vacations",
           description: "la t2",
           total: -444,
@@ -58,6 +63,7 @@ export class TransactionsPageComponent {
           color: 'purple'
         },
         {
+          id: 6,
           title: "Water & Electricity",
           description: "la t3",
           total: 444,
@@ -71,6 +77,7 @@ export class TransactionsPageComponent {
     [
       [
         {
+          id: 7,
           title: "Restaurant",
           description: "la t1",
           total: 444,
@@ -80,6 +87,7 @@ export class TransactionsPageComponent {
           color: 'orange'
         },
         {
+          id: 8,
           title: "Colombia Vacations",
           description: "la t2",
           total: -444,
@@ -89,6 +97,7 @@ export class TransactionsPageComponent {
           color: 'purple'
         },
         {
+          id: 9,
           title: "Water & Electricity",
           description: "la t3",
           total: 444,
@@ -102,6 +111,7 @@ export class TransactionsPageComponent {
     [
       [
         {
+          id: 10,
           title: "Restaurant",
           description: "la t1",
           total: 444,
@@ -111,6 +121,7 @@ export class TransactionsPageComponent {
           color: 'orange'
         },
         {
+          id: 11,
           title: "Colombia Vacations",
           description: "la t2",
           total: -444,
@@ -120,6 +131,7 @@ export class TransactionsPageComponent {
           color: 'purple'
         },
         {
+          id: 12,
           title: "Water & Electricity",
           description: "la t3",
           total: 444,

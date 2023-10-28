@@ -1,0 +1,33 @@
+<main class="container">
+    <section class="category-record">
+        <form (submit)="saveCategory()" ngNativeValidate>
+            <app-input
+                label="name"
+                title="Name"
+                placeholder="Enter Category Name"
+                [(value)]="category.name"
+            />
+            <span *ngIf="!category.name; else elseBlock">Nombre requerido</span>
+            <ng-template #elseBlock>
+                <span>Esta bien</span>
+            </ng-template>
+                <!-- ngModel
+                #nameInput="ngModel"
+                required
+                pattern="[A-Za-z0-9]{1,20}" -->
+            <!-- <span>Valid: {{ nameInput.valid }}</span> -->
+            <app-input
+                label="color"
+                type="color"
+                title="Color"
+                placeholder="Enter Category Color"
+                [(value)]="category.color"
+            />
+            <app-button type="submit"/>
+        </form>
+    </section>
+
+    <section class="categories-list">
+        <app-category [category]="c" *ngFor="let c of categories" />
+    </section>
+</main>
