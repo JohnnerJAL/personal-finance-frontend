@@ -7,3 +7,5 @@ export interface Category {
     icon?: string
     color?: string
 }
+
+export interface CategoryDTO extends Omit<Category, 'id'> {}

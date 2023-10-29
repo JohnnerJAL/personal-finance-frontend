@@ -9,4 +9,6 @@ export class ButtonComponent {
 
   @Input() type = 'button';
 
+  @Input() disabled: boolean | null = false;
+
 }

@@ -22,6 +22,8 @@ export class InputComponent {
   @Input()
   placeholder = '';
 
+  @Input() required: boolean | string = false;
+
   @Input()
   type="text"
 

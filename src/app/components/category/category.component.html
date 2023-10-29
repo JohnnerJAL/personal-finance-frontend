@@ -11,3 +11,10 @@
     </div>
     <!-- <div class="total">{{ category.total.toString() | currency }}</div> -->
 </div>
+
+<app-detail-modal *ngIf="isDetailsModalOpen">
+    <div style="color: red;">
+        <p>{{ category.name }}</p>
+        <p>{{ category.description }}</p>
+    </div>
+</app-detail-modal>

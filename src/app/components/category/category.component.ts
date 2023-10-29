@@ -18,8 +18,11 @@ export class CategoryComponent {
     color: 'black'
   };
 
+  isDetailsModalOpen = false
+
   showDetails(categoryId: number) {
     console.log(categoryId);
+    this.isDetailsModalOpen = true;
   }
   
 }

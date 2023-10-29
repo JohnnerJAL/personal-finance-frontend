@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgIconsModule } from '@ng-icons/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgIconsModule } from '@ng-icons/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -54,6 +55,7 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     NgIconsModule.withIcons({
       heroDocumentText,
       heroUser,
