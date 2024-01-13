@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Category, CategoryDTO } from 'src/app/Interface/category';
 import { CategoryService } from 'src/app/services/category/category.service';
 
@@ -7,9 +7,22 @@ import { CategoryService } from 'src/app/services/category/category.service';
   templateUrl: './categories-page.component.html',
   styleUrls: ['./categories-page.component.scss']
 })
-export class CategoriesPageComponent {
+export class CategoriesPageComponent implements OnInit {
 
-  categories: Category[] = [];
+  categories: Category[] = [
+    {
+      id: 1,
+      name: 'Autoservicio',
+      isActive: true,
+      accountId: 1
+    },
+    {
+      id: 2,
+      name: 'Autoservicio2',
+      isActive: true,
+      accountId: 1
+    }
+  ];
 
   category: CategoryDTO = {
     name: '',
@@ -33,6 +46,15 @@ export class CategoriesPageComponent {
     this.categoryService
       .createCategory(this.category)
       .subscribe(data => this.categories.unshift(data))
+  }
+
+  updateCategory(event: Category) {
+    this.categoryService
+      .updateCategory(event)
+      .subscribe(data => {
+        const index = this.categories.findIndex(category => category.id === data.id);
+        this.categories[index] = data;
+      })
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-detail-modal',
@@ -7,21 +7,16 @@ import { Component } from '@angular/core';
 })
 export class DetailModalComponent {
 
-  private modalIsOpen = false;
+  @Output() closingEvent = new EventEmitter<boolean>();
 
-  closeModal(e: MouseEvent) {
-    console.log(e.target);
-    console.log('close');
-    this.modalIsOpen = false;
+  @ViewChild('modal_container') container!: ElementRef;
+
+  closeModal() {
+    this.closingEvent.emit(false);
   }
 
-  closeModal2() {
-    console.log('close2');
-  }
-
-  closeModal3(t: boolean) {
-    console.log('STEP FINAL')
-    console.log(t);
+  clickOnBackground(event: MouseEvent) {
+    !this.container.nativeElement.contains(event.target) && this.closeModal();
   }
 
 }

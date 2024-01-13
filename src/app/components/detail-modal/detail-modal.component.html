@@ -1,5 +1,8 @@
-<div id="modal-background" class="container">
-    <div class="modal-container" appClickOutside>
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<div class="modal-background" (click)="clickOnBackground($event)">
+    <div class="modal-container" #modal_container>
+        <span class="modal-container__elem-to-close" (click)="closeModal()">X</span>
         <ng-content></ng-content>
     </div>
 </div>

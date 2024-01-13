@@ -1,6 +1,7 @@
-<div class="category" [class.disabled]="!category.isActive" (click)="showDetails(category.id)" (keyup)="showDetails(category.id)" role="document">
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<div class="category" [class.disabled]="!category.isActive" (click)="detailModalToogle()" role="document">
     <div class="icon-container">
-        <ng-icon [name]="category.icon ?? ''" [color]="category.color" size="14"></ng-icon>
+        <ng-icon [name]="category.icon ?? 'heroTag'" [color]="category.color ?? 'white'" size="14"></ng-icon>
     </div>
     <div>
         <p class="title">{{ category.name }}</p>
@@ -12,9 +13,23 @@
     <!-- <div class="total">{{ category.total.toString() | currency }}</div> -->
 </div>
 
-<app-detail-modal *ngIf="isDetailsModalOpen">
-    <div style="color: red;">
-        <p>{{ category.name }}</p>
-        <p>{{ category.description }}</p>
+<app-detail-modal *ngIf="isDetailsModalOpen" (closingEvent)="detailModalToogle()">
+    <div class="modal-content">
+        <form (ngSubmit)="updateCategory()">
+            <div>
+                <label for="name">Name</label>
+                <input id="name" type="text" [(ngModel)]="category.name" name="name" required>
+            </div>
+
+            <div>
+                <label for="description">Description</label>
+                <input id="description" type="text" [(ngModel)]="category.description" name="description" placeholder="description">
+            </div>
+    
+            <button>Save</button>
+        </form>
     </div>
+
+    <!-- TODO -->
+    <!-- <div>!Delete</div> -->
 </app-detail-modal>

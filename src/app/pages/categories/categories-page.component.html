@@ -29,6 +29,6 @@
     </section>
 
     <section class="categories-list">
-        <app-category [category]="c" *ngFor="let c of categories" />
+        <app-category [category]="c" *ngFor="let c of categories" (categoryEditEvent)="updateCategory($event)" />
     </section>
 </main>

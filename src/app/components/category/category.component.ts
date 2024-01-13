@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Category } from 'src/app/Interface/category';
+import { CategoryService } from 'src/app/services/category/category.service';
 
 @Component({
   selector: 'app-category',
@@ -7,6 +8,10 @@ import { Category } from 'src/app/Interface/category';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent {
+
+  constructor(
+    private categoryService: CategoryService
+  ) { }
 
   @Input()
   category: Category = {
@@ -20,9 +25,14 @@ export class CategoryComponent {
 
   isDetailsModalOpen = false
 
-  showDetails(categoryId: number) {
-    console.log(categoryId);
-    this.isDetailsModalOpen = true;
+  detailModalToogle() {
+    this.isDetailsModalOpen = !this.isDetailsModalOpen;
+  }
+
+  @Output() categoryEditEvent = new EventEmitter<Category>();
+
+  updateCategory() {
+    this.categoryEditEvent.emit(this.category)
   }
   
 }

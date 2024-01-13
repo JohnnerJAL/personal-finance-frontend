@@ -12,11 +12,15 @@ export class CategoryService {
   ) { }
 
   getUserCategories() {
-    return this.http.get<Category[]>('http://localhost:3004/category/account/1')
+    return this.http.get<Category[]>('http://localhost:8080/categories?accountId=1')
   }
 
   createCategory(category: CategoryDTO) {
-    return this.http.post<Category>('http://localhost:3004/category', category)
+    return this.http.post<Category>('http://localhost:8080/categories', category)
+  }
+
+  updateCategory(category: Category) {
+    return this.http.patch<Category>(`http://localhost:8080/categories/${category.id}`, category)
   }
 
 }

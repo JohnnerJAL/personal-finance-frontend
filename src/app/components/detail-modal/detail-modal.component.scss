@@ -1,4 +1,4 @@
-div.container  {
+div.modal-background {
     position: absolute;
     top: 0;
     right: 0;
@@ -13,12 +13,20 @@ div.container  {
 
     div.modal-container {
         position: absolute;
-        width: 200px;
-        height: 150px;
+        min-width: 200px;
+        min-height: 150px;
         background-color: white;
         border-radius: 4px;
         box-shadow: 0px 0px 10px 0px rgba(158,158,158,1);
 
         z-index: 4;
+
+        > span.modal-container__elem-to-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            cursor: pointer;
+        }
     }
 }
