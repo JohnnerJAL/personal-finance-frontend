@@ -28,7 +28,7 @@ export class InputComponent {
   type="text"
 
   @Input()
-  value: string | undefined;
+  value: number | string | undefined;
 
   @Output()
   valueChange = new EventEmitter<string>();

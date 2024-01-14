@@ -17,7 +17,8 @@ export class TransactionComponent {
     totalAvailable: 0,
     createdOn: new Date(),
     icon: 'heroTag',
-    color: 'black'
+    color: 'black',
+    categoryId: 1
   }
 
   showDetails(transactionId: number) {

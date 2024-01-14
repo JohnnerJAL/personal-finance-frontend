@@ -17,14 +17,14 @@
 
     <section class="transaction-record">
         <h4>TRANSACTION</h4>
-        <form action="">
+        <form (ngSubmit)="saveTransaction()">
             <label for="category">
                 <span>Category:</span>
                 <div class="input-container">
                     <div class="icon-container">
                         <ng-icon name="heroTag" color="white" size="15"></ng-icon>
                     </div>
-                    <select id="category" name="category" style="color: gray;">
+                    <select id="category" name="category" style="color: gray;" [(ngModel)]="transaction.categoryId">
                         <option hidden>Select Category</option>
                         <option [value]="c.id" *ngFor="let c of categories">
                             {{ c.name }}
@@ -32,13 +32,14 @@
                     </select>
                 </div>
             </label>
-            <app-input label="title" title="Title" name="title" />
+            <app-input label="title" title="Title" name="title" [value]="transaction.title" />
             <app-input
                 label="description"
                 title="Description"
                 name="description"
                 placeholder="Enter Description"
                 icon="heroDocumentText"
+                [value]="transaction.description"
             />
             <app-input
                 label="total"
@@ -47,8 +48,9 @@
                 type="number"
                 placeholder="Enter Transaction Value"
                 icon="heroCurrencyDollar"
+                [value]="transaction.total"
             />
-            <app-button />
+            <app-button type="submit" />
         </form>
     </section>
 

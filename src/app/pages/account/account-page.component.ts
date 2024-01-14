@@ -2,9 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { Transaction } from 'src/app/Interface/Transaction';
 import Chart from 'chart.js/auto'
 import { Category } from 'src/app/Interface/category';
+import { CategoryService } from 'src/app/services/category/category.service';
+import { TransactionService } from 'src/app/services/transaction.service';
 
 interface Account {
   totalAvailable: number,
+}
+
+export interface Create extends Partial<Transaction> {
+  transactionTemplate: {
+    id: number,
+    title: string,
+    description: string,
+    total: number,
+    accountId: number,
+    categoryId: number,
+    type: string
+  }
 }
 
 @Component({
@@ -17,10 +31,49 @@ export class AccountPageComponent implements OnInit {
     totalAvailable: 2000
   }
 
+  constructor(
+    private categoryService: CategoryService,
+    private transactionService: TransactionService
+  ) { }
+
   public chart: any;
+
+  "transactionTemplate": {
+    "id": 1,
+    "title": "sample",
+    "description": "sample",
+    "total": 100,
+    "accountId": 1,
+    "categoryId": 1,
+    "type": "income"
+  }
+
+  transaction: Create = {
+    transactionTemplate: {
+      id: 1,
+      title: "sample",
+      description: "sample",
+      total: 100,
+      accountId: 1,
+      categoryId: 1,
+      type: "income"
+    },
+    // icon: 'heroTag',
+    // color: 'orange',
+    // categoryId: 1
+  }
 
   ngOnInit(): void {
     this.createChart();
+
+    this.categoryService.getUserCategories().subscribe(data => this.categories = data)
+    this.transactionService.getTransactionsByAccountId().subscribe(data => this.lastTransactions = data)
+  }
+
+  saveTransaction() {
+
+    console.log('prueba')
+    this.transactionService.saveTransaction(this.transaction).subscribe(data => this.lastTransactions.unshift(data))
   }
 
   createChart(){
@@ -57,7 +110,8 @@ export class AccountPageComponent implements OnInit {
       totalAvailable: 2,
       createdOn: new Date("2023-07-16"),
       icon: 'heroTag',
-      color: 'orange'
+      color: 'orange',
+      categoryId: 1
     },
     {
       id: 2,
@@ -67,7 +121,8 @@ export class AccountPageComponent implements OnInit {
       totalAvailable: 2,
       createdOn: new Date("2023-07-16"),
       icon: 'heroExclamationTriangle',
-      color: 'purple'
+      color: 'purple',
+      categoryId: 2
     },
     {
       id: 3,
@@ -77,7 +132,8 @@ export class AccountPageComponent implements OnInit {
       totalAvailable: 2,
       createdOn: new Date("2023-07-16"),
       icon: 'heroTag',
-      color: 'green'
+      color: 'green',
+      categoryId: 3
     }
   ];
 
@@ -125,7 +181,8 @@ export class AccountPageComponent implements OnInit {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroTag',
-          color: 'orange'
+          color: 'orange',
+          categoryId: 1
         },
       ],
       [
@@ -137,7 +194,8 @@ export class AccountPageComponent implements OnInit {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroTag',
-          color: 'green'
+          color: 'green',
+          categoryId: 2
         }
       ]
     ],
@@ -151,9 +209,56 @@ export class AccountPageComponent implements OnInit {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroTag',
-          color: 'green'
+          color: 'green',
+          categoryId: 3
         }
       ]
     ]
   ]
 }
+
+
+const example = [
+  {
+    "id": 2,
+    "totalAvailable": 100.0,
+    "createdOn": "2024-01-13",
+    "transactionTemplate": {
+      "id": 1,
+      "title": "sample",
+      "description": "sample",
+      "total": 100.0,
+      "accountId": 1,
+      "categoryId": 1,
+      "type": "income"
+    }
+  },
+  {
+    "id": 4,
+    "totalAvailable": 200.0,
+    "createdOn": "2024-01-13",
+    "transactionTemplate": {
+      "id": 1,
+      "title": "sample",
+      "description": "sample",
+      "total": 100.0,
+      "accountId": 1,
+      "categoryId": 1,
+      "type": "income"
+    }
+  },
+  {
+    "id": 5,
+    "totalAvailable": 300.0,
+    "createdOn": "2024-01-13",
+    "transactionTemplate": {
+      "id": 1,
+      "title": "sample",
+      "description": "sample",
+      "total": 100.0,
+      "accountId": 1,
+      "categoryId": 1,
+      "type": "income"
+    }
+  }
+]

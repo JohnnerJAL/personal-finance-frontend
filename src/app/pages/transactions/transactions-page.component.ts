@@ -18,7 +18,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroTag',
-          color: 'orange'
+          color: 'orange',
+          categoryId: 1
         },
         {
           id: 2,
@@ -28,7 +29,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroExclamationTriangle',
-          color: 'purple'
+          color: 'purple',
+          categoryId: 2
         },
         {
           id: 3,
@@ -38,7 +40,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroTag',
-          color: 'green'
+          color: 'green',
+          categoryId: 3
         }
       ],
       [
@@ -50,7 +53,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroTag',
-          color: 'orange'
+          color: 'orange',
+          categoryId: 1
         },
         {
           id: 5,
@@ -60,7 +64,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroExclamationTriangle',
-          color: 'purple'
+          color: 'purple',
+          categoryId: 2
         },
         {
           id: 6,
@@ -70,7 +75,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroTag',
-          color: 'green'
+          color: 'green',
+          categoryId: 3
         }
       ]
     ],
@@ -84,7 +90,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroTag',
-          color: 'orange'
+          color: 'orange',
+          categoryId: 1
         },
         {
           id: 8,
@@ -94,7 +101,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroExclamationTriangle',
-          color: 'purple'
+          color: 'purple',
+          categoryId: 2
         },
         {
           id: 9,
@@ -104,7 +112,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroTag',
-          color: 'green'
+          color: 'green',
+          categoryId: 3
         }
       ]
     ],
@@ -118,7 +127,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroTag',
-          color: 'orange'
+          color: 'orange',
+          categoryId: 4
         },
         {
           id: 11,
@@ -128,7 +138,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroExclamationTriangle',
-          color: 'purple'
+          color: 'purple',
+          categoryId: 5
         },
         {
           id: 12,
@@ -138,7 +149,8 @@ export class TransactionsPageComponent {
           totalAvailable: 2,
           createdOn: new Date("2023-07-16"),
           icon: 'heroTag',
-          color: 'green'
+          color: 'green',
+          categoryId: 5
         }
       ]
     ]

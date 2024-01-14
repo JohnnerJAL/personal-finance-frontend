@@ -1,5 +1,6 @@
 export interface Transaction {
     id: number,
+    categoryId: number,
     title: string,
     description: string,
     total: number,
@@ -8,3 +9,5 @@ export interface Transaction {
     icon: string,
     color: string
 }
+
+export interface TransactionDTO extends Omit<Transaction, 'id'> {}
