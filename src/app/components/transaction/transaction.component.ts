@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Transaction } from 'src/app/Interface/Transaction';
+import { Transaction, Transaction2 } from 'src/app/Interface/Transaction';
 
 @Component({
   selector: 'app-transaction',
@@ -7,18 +7,24 @@ import { Transaction } from 'src/app/Interface/Transaction';
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent {
-
+  // icon: 'heroTag',
+  // icon: 'heroExclamationTriangle',
   @Input()
-  transaction: Transaction = {
-    id: 1,
-    title: '',
-    description: '',
-    total: 0,
+  transaction: Transaction2 = {
+    id: 0,
     totalAvailable: 0,
     createdOn: new Date(),
-    icon: 'heroTag',
-    color: 'black',
-    categoryId: 1
+    transactionTemplate: {
+      id: 0,
+      title: '',
+      description: '',
+      total: 0,
+      accountId: 0,
+      categoryId: 0,
+      type: '',
+      icon: 'heroTag',
+      color: 'black'
+    }
   }
 
   showDetails(transactionId: number) {

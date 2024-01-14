@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Transaction } from 'src/app/Interface/Transaction';
+import { TransactionsByMonth } from 'src/app/Interface/Transaction';
 
 @Component({
   selector: 'app-transactions',
@@ -9,5 +9,5 @@ import { Transaction } from 'src/app/Interface/Transaction';
 export class TransactionsComponent {
 
   @Input()
-  transactions: Array<Array<Array<Transaction>>> = [];
+  transactions: Array<TransactionsByMonth> = [];
 }

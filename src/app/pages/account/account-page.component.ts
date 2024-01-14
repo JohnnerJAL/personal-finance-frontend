@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Transaction } from 'src/app/Interface/Transaction';
+import { Transaction, TransactionsByMonth } from 'src/app/Interface/Transaction';
 import Chart from 'chart.js/auto'
 import { Category } from 'src/app/Interface/category';
 import { CategoryService } from 'src/app/services/category/category.service';
@@ -31,22 +31,15 @@ export class AccountPageComponent implements OnInit {
     totalAvailable: 2000
   }
 
+  categories: Array<Category> = []
+  lastTransactions: Array<TransactionsByMonth> = []
+
   constructor(
     private categoryService: CategoryService,
     private transactionService: TransactionService
   ) { }
 
   public chart: any;
-
-  "transactionTemplate": {
-    "id": 1,
-    "title": "sample",
-    "description": "sample",
-    "total": 100,
-    "accountId": 1,
-    "categoryId": 1,
-    "type": "income"
-  }
 
   transaction: Create = {
     transactionTemplate: {
@@ -64,16 +57,22 @@ export class AccountPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createChart();
-
+    this.createChart()
     this.categoryService.getUserCategories().subscribe(data => this.categories = data)
-    this.transactionService.getTransactionsByAccountId().subscribe(data => this.lastTransactions = data)
+    this.getTransactionsGroupedByMonthAndDay()
+  }
+
+  getTransactionsGroupedByMonthAndDay() {
+    this.transactionService
+      .getTransactionsByAccountId()
+      .subscribe(data => this.lastTransactions = data.transactionsGroupedByMonthAndDay)
   }
 
   saveTransaction() {
-
-    console.log('prueba')
-    this.transactionService.saveTransaction(this.transaction).subscribe(data => this.lastTransactions.unshift(data))
+    this.transactionService
+      .saveTransaction(this.transaction)
+      // TODO SORT THIS IN THE BACKEND and push the new transaction to the state array
+      .subscribe(() => this.getTransactionsGroupedByMonthAndDay())
   }
 
   createChart(){
@@ -101,164 +100,4 @@ export class AccountPageComponent implements OnInit {
     });
   }
 
-  lastTransactions: Array<Transaction> = [
-    {
-      id: 1,
-      title: "Restaurant",
-      description: "la t1",
-      total: 444,
-      totalAvailable: 2,
-      createdOn: new Date("2023-07-16"),
-      icon: 'heroTag',
-      color: 'orange',
-      categoryId: 1
-    },
-    {
-      id: 2,
-      title: "Colombia Vacations",
-      description: "la t2",
-      total: -444,
-      totalAvailable: 2,
-      createdOn: new Date("2023-07-16"),
-      icon: 'heroExclamationTriangle',
-      color: 'purple',
-      categoryId: 2
-    },
-    {
-      id: 3,
-      title: "Water & Electricity",
-      description: "la t3",
-      total: 444,
-      totalAvailable: 2,
-      createdOn: new Date("2023-07-16"),
-      icon: 'heroTag',
-      color: 'green',
-      categoryId: 3
-    }
-  ];
-
-  categories: Category[] = [
-    {
-      "id": 8,
-      "name": "Taxes",
-      "isActive": true,
-      "accountId": 1
-    },
-    {
-      "id": 10,
-      "name": "Autoservicio",
-      "isActive": true,
-      "accountId": 1
-    },
-    {
-      "id": 16,
-      "name": "Transport",
-      "isActive": true,
-      "accountId": 1
-    },
-    {
-      "id": 18,
-      "name": "Angelbb",
-      "isActive": true,
-      "accountId": 1
-    },
-    {
-      "id": 19,
-      "name": "Thomasbb",
-      "isActive": true,
-      "accountId": 1
-    }
-  ];
-
-  transactions: Array<Array<Array<Transaction>>> = [
-    [
-      [
-        {
-          id: 1,
-          title: "Restaurant",
-          description: "la t1",
-          total: 444,
-          totalAvailable: 2,
-          createdOn: new Date("2023-07-16"),
-          icon: 'heroTag',
-          color: 'orange',
-          categoryId: 1
-        },
-      ],
-      [
-        {
-          id: 2,
-          title: "Water & Electricity",
-          description: "la t3",
-          total: 444,
-          totalAvailable: 2,
-          createdOn: new Date("2023-07-16"),
-          icon: 'heroTag',
-          color: 'green',
-          categoryId: 2
-        }
-      ]
-    ],
-    [
-      [
-        {
-          id: 3,
-          title: "Water & Electricity",
-          description: "la t3",
-          total: 444,
-          totalAvailable: 2,
-          createdOn: new Date("2023-07-16"),
-          icon: 'heroTag',
-          color: 'green',
-          categoryId: 3
-        }
-      ]
-    ]
-  ]
 }
-
-
-const example = [
-  {
-    "id": 2,
-    "totalAvailable": 100.0,
-    "createdOn": "2024-01-13",
-    "transactionTemplate": {
-      "id": 1,
-      "title": "sample",
-      "description": "sample",
-      "total": 100.0,
-      "accountId": 1,
-      "categoryId": 1,
-      "type": "income"
-    }
-  },
-  {
-    "id": 4,
-    "totalAvailable": 200.0,
-    "createdOn": "2024-01-13",
-    "transactionTemplate": {
-      "id": 1,
-      "title": "sample",
-      "description": "sample",
-      "total": 100.0,
-      "accountId": 1,
-      "categoryId": 1,
-      "type": "income"
-    }
-  },
-  {
-    "id": 5,
-    "totalAvailable": 300.0,
-    "createdOn": "2024-01-13",
-    "transactionTemplate": {
-      "id": 1,
-      "title": "sample",
-      "description": "sample",
-      "total": 100.0,
-      "accountId": 1,
-      "categoryId": 1,
-      "type": "income"
-    }
-  }
-]
